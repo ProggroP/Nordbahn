@@ -62,52 +62,49 @@ function loadOptions() {
 
   $departures = localStorage.departures === 3
 
-  if (localStorage.backgroundColor) {
-    $backgroundColorPicker[0].value = localStorage.backgroundColor;
-    $AAL[0].checked = localStorage.AAL === 'false'
-    $AAT[0].checked = localStorage.AAT === 'false'
-    $AAU[0].checked = localStorage.AAU === 'false'
-    $AO[0].checked = localStorage.AO === 'false'
-    $ASB[0].checked = localStorage.ASB === 'false'
-    $ABE[0].checked = localStorage.ABE === 'false'
-    $ABGS[0].checked = localStorage.ABGS === 'false'
-    $ABSM[0].checked = localStorage.ABSM === 'false'
-    $ADH[0].checked = localStorage.ADH === 'false'
-    $AEL[0].checked = localStorage.AEL === 'false'
-    $AFK[0].checked = localStorage.AFK === 'false'
-    $AFN[0].checked = localStorage.AFN === 'false'
-    $AGST[0].checked = localStorage.AGST === 'false'
-    $AGK[0].checked = localStorage.AGK === 'false'
-    $AHNU[0].checked = localStorage.AHNU === 'false'
-    $AA[0].checked = localStorage.AA === 'false'
-    $ADF[0].checked = localStorage.ADF === 'false'
-    $AH[0].checked = localStorage.AH === 'false'
-    $AHI[0].checked = localStorage.AHI === 'false'
-    $AHZH[0].checked = localStorage.AHZH === 'false'
-    $AHWT[0].checked = localStorage.AHWT === 'false'
-    $AHOT[0].checked = localStorage.AHOT === 'false'
-    $AIZ[0].checked = localStorage.AIZ === 'false'
-    $AJHH[0].checked = localStorage.AJHH === 'false'
-    $AKM[0].checked = localStorage.AKM === 'false'
-    $AKHD[0].checked = localStorage.AKHD === 'false'
-    $AN[0].checked = localStorage.AN === 'false'
-    $ANSW[0].checked = localStorage.ANSW === 'false'
-    $ANM[0].checked = localStorage.ANM === 'false'
-    $ANH[0].checked = localStorage.ANH === 'false'
-    $AODT[0].checked = localStorage.AODT === 'false'
-    $AP[0].checked = localStorage.AP === 'false'
-    $APD[0].checked = localStorage.APD === 'false'
-    $ARE[0].checked = localStorage.ARE === 'false'
-    $ARL[0].checked = localStorage.ARL === 'false'
-    $ASDD[0].checked = localStorage.ASDD === 'false'
-    $ATB[0].checked = localStorage.ATB === 'false'
-    $ATM[0].checked = localStorage.ATM === 'false'
-    $AWAH[0].checked = localStorage.AWAH === 'false'
-    $AWK[0].checked = localStorage.AWK === 'false'
-    $AWA[0].checked = localStorage.AWA === 'false'
-    $AWBU[0].checked = localStorage.AWBU === 'false'
-    $AWST[0].checked = localStorage.AWST === 'false'
-  }
+  $AAL[0].checked = localStorage.AAL === 'false';
+  $AAT[0].checked = localStorage.AAT === 'false';
+  $AAU[0].checked = localStorage.AAU === 'false';
+  $AO[0].checked = localStorage.AO === 'false';
+  $ASB[0].checked = localStorage.ASB === 'false';
+  $ABE[0].checked = localStorage.ABE === 'false';
+  $ABGS[0].checked = localStorage.ABGS === 'false';
+  $ABSM[0].checked = localStorage.ABSM === 'false';
+  $ADH[0].checked = localStorage.ADH === 'false';
+  $AEL[0].checked = localStorage.AEL === 'false';
+  $AFK[0].checked = localStorage.AFK === 'false';
+  $AFN[0].checked = localStorage.AFN === 'false';
+  $AGST[0].checked = localStorage.AGST === 'false';
+  $AGK[0].checked = localStorage.AGK === 'false';
+  $AHNU[0].checked = localStorage.AHNU === 'false';
+  $AA[0].checked = localStorage.AA === 'false';
+  $ADF[0].checked = localStorage.ADF === 'false';
+  $AH[0].checked = localStorage.AH === 'false';
+  $AHI[0].checked = localStorage.AHI === 'false';
+  $AHZH[0].checked = localStorage.AHZH === 'false';
+  $AHWT[0].checked = localStorage.AHWT === 'false';
+  $AHOT[0].checked = localStorage.AHOT === 'false';
+  $AIZ[0].checked = localStorage.AIZ === 'false';
+  $AJHH[0].checked = localStorage.AJHH === 'false';
+  $AKM[0].checked = localStorage.AKM === 'false';
+  $AKHD[0].checked = localStorage.AKHD === 'false';
+  $AN[0].checked = localStorage.AN === 'false';
+  $ANSW[0].checked = localStorage.ANSW === 'false';
+  $ANM[0].checked = localStorage.ANM === 'false';
+  $ANH[0].checked = localStorage.ANH === 'false';
+  $AODT[0].checked = localStorage.AODT === 'false';
+  $AP[0].checked = localStorage.AP === 'false';
+  $APD[0].checked = localStorage.APD === 'false';
+  $ARE[0].checked = localStorage.ARE === 'false';
+  $ARL[0].checked = localStorage.ARL === 'false';
+  $ASDD[0].checked = localStorage.ASDD === 'false';
+  $ATB[0].checked = localStorage.ATB === 'false';
+  $ATM[0].checked = localStorage.ATM === 'false';
+  $AWAH[0].checked = localStorage.AWAH === 'false';
+  $AWK[0].checked = localStorage.AWK === 'false';
+  $AWA[0].checked = localStorage.AWA === 'false';
+  $AWBU[0].checked = localStorage.AWBU === 'false';
+  $AWST[0].checked = localStorage.AWST === 'false';
 }
 
 function getAndStoreConfigData() {
