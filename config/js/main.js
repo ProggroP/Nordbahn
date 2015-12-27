@@ -60,7 +60,12 @@ function loadOptions() {
   var $AWBU = $('#AWBU');
   var $AWST = $('#AWST');
 
-  $departures = localStorage.departures === 3
+  if (! localStorage.departures) {
+    $departures.val(3);
+  }
+  else {
+    $departures.val(localStorage.departures);
+  }
 
   $AAL[0].checked = localStorage.AAL === 'true';
   $AAT[0].checked = localStorage.AAT === 'true';
