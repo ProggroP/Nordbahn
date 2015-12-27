@@ -43,7 +43,7 @@
         "AWK": false,
         "AWA": false,
         "AWBU": false,
-        "AWST": false,
+        "AWST": false
     },
     "capabilities": [
         "configurable"
