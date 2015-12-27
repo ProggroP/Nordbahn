@@ -7,9 +7,40 @@
 
 var UI = require('ui');
 var ajax = require('ajax');
-var departures = 3;
+
+var Settings = require('settings');
+
+// Set a configurable with just the close callback
+Settings.config(
+  { url: 'http://mhutzsch.ddns.net/nrdbhn' },
+  function(e) {
+    console.log('closed configurable');
+
+    // Show the parsed response
+    console.log(JSON.stringify(e.options));
+
+    // Show the raw response if parsing failed
+    if (e.failed) {
+      console.log(e.response);
+    }
+  }
+);
+var options = Settings.option();
+var departures = Settings.options('departures');
+var stations = [ ];
+// delete options.departures;
+
+for (var key in options) {
+  if (options.hasOwnProperty(key)) {
+    if (options[key] === true) {
+      stations.push(key);
+    }
+  }
+}
+
+console.log ('stations: ' + stations);
+
 var result = 'Abf | Ziel | Vsp\n';
-var stations = ['AH','ATM','AA'];
 
 var card = new UI.Card({
   title: 'NRDBHN',
