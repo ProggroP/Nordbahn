@@ -25,8 +25,9 @@ Settings.config(
     }
   }
 );
+
 var options = Settings.option();
-var departures = Settings.options('departures');
+var departures = parseInt(options.departures);
 var stations = [ ];
 // delete options.departures;
 
@@ -38,10 +39,7 @@ for (var key in options) {
   }
 }
 
-console.log ('stations: ' + stations);
-
 var result = 'Abf | Ziel | Vsp\n';
-
 var card = new UI.Card({
   title: 'NRDBHN',
   body: 'Lade Abfahrten ...',
@@ -55,7 +53,6 @@ stations.forEach(function(station) {
   ajax({ url: 'https://datnet-nbe.etc-consult.de/datnet-nbe/xml?bhf=' + station, type: 'text' },
     function(data) {
       result = result + data.match(/<name>(.*?)<\/name>/)[1] + '\n';
-      
       var filtered = data.match(/<abfahrt[\s\S]*?<\/abfahrt>/gm);
       var num = departures;
       
