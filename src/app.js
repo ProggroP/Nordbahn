@@ -29,7 +29,6 @@ Settings.config(
 var options = Settings.option();
 var departures = parseInt(options.departures);
 var stations = [ ];
-// delete options.departures;
 
 for (var key in options) {
   if (options.hasOwnProperty(key)) {
@@ -45,26 +44,39 @@ var card = new UI.Card({
   body: 'Lade Abfahrten ...',
   scrollable: true
 });
-
 card.show();
 card.style('small');
 
-stations.forEach(function(station) {
-  ajax({ url: 'https://datnet-nbe.etc-consult.de/datnet-nbe/xml?bhf=' + station, type: 'text' },
-    function(data) {
-      result = result + data.match(/<name>(.*?)<\/name>/)[1] + '\n';
-      var filtered = data.match(/<abfahrt[\s\S]*?<\/abfahrt>/gm);
-      var num = departures;
-      
-      if (filtered.length < departures) num = filtered.length;
-      
-      for (var i = 0; i < num; i++) {
-        result = result + filtered[i].match(/<zeit>(.*?)<\/zeit>/)[1] + ' ';
-        result = result + filtered[i].match(/<ziel.+>(.*?)<\/ziel>/)[1] + ' ';
-        result = result + filtered[i].match(/<prognosemin>(.*?)<\/prognosemin>/)[1] + '\n';
+function getStatus() {
+  stations.forEach(function(station) {
+
+    ajax({ url: 'https://datnet-nbe.etc-consult.de/datnet-nbe/xml?bhf=' + station, type: 'text' },
+      function(data, status, request) {
+        result = result + data.match(/<name>(.*?)<\/name>/)[1] + '\n';
+        var filtered = data.match(/<abfahrt[\s\S]*?<\/abfahrt>/gm) || [];
+        var num = departures;
+  
+        if (filtered.length < departures) num = filtered.length;
+        
+        for (var i = 0; i < num; i++) {
+          result = result + filtered[i].match(/<zeit>(.*?)<\/zeit>/)[1] + ' ';
+          result = result + filtered[i].match(/<ziel.+>(.*?)<\/ziel>/)[1] + ' ';
+          result = result + filtered[i].match(/<prognosemin>(.*?)<\/prognosemin>/)[1] + '\n';
+        }
+        card.body(result);
+        
+      },
+      function(error, status, request) {
+        console.log('Failed to get status: ' + error);
       }
-      
-      card.body(result);
-    }
-  );
+    );
+  });
+}
+
+getStatus();
+
+card.on('click', 'select', function() {
+  card.body('Aktualisiere Abfahrten ...');
+  result = 'Abf | Ziel | Vsp\n';
+  getStatus();
 });
