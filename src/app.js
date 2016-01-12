@@ -12,7 +12,7 @@ var Settings = require('settings');
 
 // Set a configurable with just the close callback
 Settings.config(
-  { url: 'http://mhutzsch.ddns.net/nrdbhn' },
+  { url: 'http://hutzsch.de/nordbahn' },
   function(e) {
     console.log('closed configurable');
 
